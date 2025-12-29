@@ -1,6 +1,6 @@
 import { LoadingManager, AnimationLoader, AudioLoader, TextureLoader, Mesh } from 'three';
 import { Sprite, SpriteMaterial, DoubleSide, AudioListener, PositionalAudio } from 'three';
-import { LineSegments, LineBasicMaterial, MeshBasicMaterial, BufferGeometry, Vector3, PlaneBufferGeometry } from 'three';
+import { LineSegments, LineBasicMaterial, MeshBasicMaterial, BufferGeometry, Vector3, PlaneGeometry } from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { NavMeshLoader, CostTable } from 'yuka';
 import { CONFIG } from './Config.js';
@@ -294,7 +294,7 @@ class AssetManager {
 		// shadow for soldiers
 
 		const shadowTexture = textureLoader.load( './textures/shadow.png' );
-		const planeGeometry = new PlaneBufferGeometry();
+		const planeGeometry = new PlaneGeometry();
 		const planeMaterial = new MeshBasicMaterial( { map: shadowTexture, transparent: true, opacity: 0.4 } );
 
 		const shadowPlane = new Mesh( planeGeometry, planeMaterial );

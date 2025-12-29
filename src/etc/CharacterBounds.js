@@ -62,13 +62,13 @@ class CharacterBounds {
 		const headBone = renderComponent.getObjectByName( 'Armature_mixamorigHead' );
 		const head = new AABB( new Vector3( - 0.1, 1.6, - 0.1 ), new Vector3( 0.1, 1.8, 0.1 ) );
 		let bindMatrix = new Matrix4().copy( headBone.matrixWorld );
-		let bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		let bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: head, bone: headBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const spineBone = renderComponent.getObjectByName( 'Armature_mixamorigSpine1' );
 		const spine = new AABB( new Vector3( - 0.2, 1, - 0.2 ), new Vector3( 0.2, 1.6, 0.2 ) );
 		bindMatrix = new Matrix4().copy( spineBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: spine, bone: spineBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		// arms
@@ -76,25 +76,25 @@ class CharacterBounds {
 		const rightArmBone = renderComponent.getObjectByName( 'Armature_mixamorigRightArm' );
 		const rightArm = new AABB( new Vector3( - 0.4, 1.42, - 0.15 ), new Vector3( - 0.2, 1.58, 0.1 ) );
 		bindMatrix = new Matrix4().copy( rightArmBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: rightArm, bone: rightArmBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const rightForeArmBone = renderComponent.getObjectByName( 'Armature_mixamorigRightForeArm' );
 		const rightForeArm = new AABB( new Vector3( - 0.8, 1.42, - 0.15 ), new Vector3( - 0.4, 1.55, 0.05 ) );
 		bindMatrix = new Matrix4().copy( rightForeArmBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: rightForeArm, bone: rightForeArmBone, bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const leftArmBone = renderComponent.getObjectByName( 'Armature_mixamorigLeftArm' );
 		const leftArm = new AABB( new Vector3( 0.2, 1.42, - 0.15 ), new Vector3( 0.4, 1.58, 0.1 ) );
 		bindMatrix = new Matrix4().copy( leftArmBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: leftArm, bone: leftArmBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const leftForeArmBone = renderComponent.getObjectByName( 'Armature_mixamorigLeftForeArm' );
 		const leftForeArm = new AABB( new Vector3( 0.4, 1.42, - 0.15 ), new Vector3( 0.8, 1.55, 0.05 ) );
 		bindMatrix = new Matrix4().copy( leftForeArmBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: leftForeArm, bone: leftForeArmBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		// legs
@@ -102,25 +102,25 @@ class CharacterBounds {
 		const rightUpLegBone = renderComponent.getObjectByName( 'Armature_mixamorigRightUpLeg' );
 		const rightUpLeg = new AABB( new Vector3( - 0.2, 0.6, - 0.15 ), new Vector3( 0, 1, 0.15 ) );
 		bindMatrix = new Matrix4().copy( rightUpLegBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: rightUpLeg, bone: rightUpLegBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const rightLegBone = renderComponent.getObjectByName( 'Armature_mixamorigRightLeg' );
 		const rightLeg = new AABB( new Vector3( - 0.2, 0, - 0.15 ), new Vector3( 0, 0.6, 0.15 ) );
 		bindMatrix = new Matrix4().copy( rightLegBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: rightLeg, bone: rightLegBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const leftUpLegBone = renderComponent.getObjectByName( 'Armature_mixamorigLeftUpLeg' );
 		const leftUpLeg = new AABB( new Vector3( 0, 0.6, - 0.15 ), new Vector3( 0.2, 1, 0.15 ) );
 		bindMatrix = new Matrix4().copy( leftUpLegBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: leftUpLeg, bone: leftUpLegBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		const leftLegBone = renderComponent.getObjectByName( 'Armature_mixamorigLeftLeg' );
 		const leftLeg = new AABB( new Vector3( 0, 0, - 0.15 ), new Vector3( 0.2, 0.6, 0.15 ) );
 		bindMatrix = new Matrix4().copy( leftLegBone.matrixWorld );
-		bindMatrixInverse = new Matrix4().getInverse( bindMatrix );
+		bindMatrixInverse = new Matrix4().copy( bindMatrix ).invert();
 		hitboxes.push( { aabb: leftLeg, bone: leftLegBone, bindMatrix: bindMatrix, bindMatrixInverse: bindMatrixInverse } );
 
 		//
@@ -237,7 +237,7 @@ class CharacterBounds {
 
 		if ( entry === undefined ) {
 
-			entry = { tick: tick, inverseBoneMatrix: new Matrix4().getInverse( bone.matrixWorld ) };
+			entry = { tick: tick, inverseBoneMatrix: new Matrix4().copy( bone.matrixWorld ).invert() };
 			this._cache.set( bone, entry );
 
 
@@ -246,7 +246,7 @@ class CharacterBounds {
 			if ( entry.tick < tick ) {
 
 				entry.tick = tick;
-				entry.inverseBoneMatrix.getInverse( bone.matrixWorld );
+				entry.inverseBoneMatrix.copy( bone.matrixWorld ).invert();
 
 			} else {
 

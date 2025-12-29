@@ -1,5 +1,5 @@
 import { LineSegments, Sprite, SpriteMaterial, LineBasicMaterial, CanvasTexture, BufferGeometry, Float32BufferAttribute } from 'three';
-import { Mesh, Group, MeshBasicMaterial, CylinderBufferGeometry, SphereBufferGeometry } from 'three';
+import { Mesh, Group, MeshBasicMaterial, CylinderGeometry, SphereGeometry } from 'three';
 
 /**
 * Class with various helper methods.
@@ -133,7 +133,7 @@ class SceneUtils {
 
 		const nodeColor = 0xff0000;
 		const nodeMaterial = new MeshBasicMaterial( { color: nodeColor } );
-		const nodeGeometry = new CylinderBufferGeometry( 0.2, 0.2, 0.5 );
+		const nodeGeometry = new CylinderGeometry( 0.2, 0.2, 0.5 );
 		nodeGeometry.translate( 0, 0.25, 0 );
 
 		for ( let i = 0, l = spawnPoints.length; i < l; i ++ ) {
@@ -165,7 +165,7 @@ class SceneUtils {
 
 		// assuming trigger.region is of type SphericalTriggerRegion
 
-		const triggerGeometry = new SphereBufferGeometry( trigger.region.radius, 16, 16 );
+		const triggerGeometry = new SphereGeometry( trigger.region.radius, 16, 16 );
 		const triggerMaterial = new MeshBasicMaterial( { color: 0x6083c2, wireframe: true } );
 
 		const triggerMesh = new Mesh( triggerGeometry, triggerMaterial );

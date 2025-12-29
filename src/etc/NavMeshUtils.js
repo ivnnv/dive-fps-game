@@ -1,7 +1,7 @@
 import { LineSegments, Line, Mesh, Group } from 'three';
 import { MeshBasicMaterial, LineBasicMaterial } from 'three';
-import { BufferGeometry, Float32BufferAttribute, IcosahedronBufferGeometry } from 'three';
-import { Color, VertexColors } from 'three';
+import { BufferGeometry, Float32BufferAttribute, IcosahedronGeometry } from 'three';
+import { Color } from 'three';
 
 /**
 * Class with various helpers in context of navigation meshes.
@@ -22,7 +22,7 @@ class NavMeshUtils {
 		const regions = navMesh.regions;
 
 		const geometry = new BufferGeometry();
-		const material = new MeshBasicMaterial( { vertexColors: VertexColors, depthWrite: false, polygonOffset: true, polygonOffsetFactor: - 4 } );
+		const material = new MeshBasicMaterial( { vertexColors: true, depthWrite: false, polygonOffset: true, polygonOffsetFactor: - 4 } );
 
 		const mesh = new Mesh( geometry, material );
 		mesh.matrixAutoUpdate = false;
@@ -114,7 +114,7 @@ class NavMeshUtils {
 		// nodes
 
 		const nodeMaterial = new MeshBasicMaterial( { color: nodeColor } );
-		const nodeGeometry = new IcosahedronBufferGeometry( nodeSize, 2 );
+		const nodeGeometry = new IcosahedronGeometry( nodeSize, 2 );
 
 		const nodes = [];
 

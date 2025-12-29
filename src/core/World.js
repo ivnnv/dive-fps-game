@@ -1,5 +1,5 @@
 import { EntityManager, Time, MeshGeometry, Vector3, CellSpacePartitioning } from 'yuka';
-import { WebGLRenderer, Scene, PerspectiveCamera, Color, AnimationMixer, Object3D, SkeletonHelper, sRGBEncoding } from 'three';
+import { WebGLRenderer, Scene, PerspectiveCamera, Color, AnimationMixer, Object3D, SkeletonHelper, SRGBColorSpace } from 'three';
 import { HemisphereLight, DirectionalLight } from 'three';
 import { AxesHelper } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -340,7 +340,7 @@ class World {
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 		this.renderer.autoClear = false;
 		this.renderer.shadowMap.enabled = true;
-		this.renderer.outputEncoding = sRGBEncoding;
+		this.renderer.outputColorSpace = SRGBColorSpace;
 		document.body.appendChild( this.renderer.domElement );
 
 		// event listeners
